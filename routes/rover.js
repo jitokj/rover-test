@@ -6,3 +6,6 @@ const router = express.Router();
 
 
 router.post("/configure",rovController.postRovConfig);
+
+
+module.exports = router;

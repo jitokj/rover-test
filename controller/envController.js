@@ -16,18 +16,28 @@ exports.postEnvConfigure = (req,res,next)=>{
 
         const envConfiguration = new Config(temperature,humidity,solar_flare,storm,area_map);
             const p = path.join(path.dirname(require.main.filename),'data','envConfig.json');
-            fs.readFile(p,(err,fileContent)=>{
-                if(!err) {
-                    if(!fileContent){
+            fs.readFile(p, (err,fileContent)=>{
+               if(!err) {
+                  if(!fileContent){
                 envConfiguration.save();
-                    }
+               res.status(201).json({"message":"succes"});
+                  }
+                  else {
+                      res.send({"message":"cannot rewrite envConfig"});
+                  }
+
+            }
+            else {
+               
+             res.send({"message":"not set"});
+                
             }
         })
              
-             res.status(201).json({"message":"succes"});
+     
+       
     }
    
-
 }
 
 exports.getEnvConfigure = (req,res,next)=>{
