@@ -1,3 +1,5 @@
+// using Express Server
+
 const express = require('express')
 const app = express()
 const port = 3000
@@ -9,11 +11,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
 
-
+//routes
 app.use("/api/environment",envRoutes);
 app.use("/api/rover",rovRoutes);
 
-
+//Json schema validation
 app.use(function(err, req, res, next) {
  
     var responseData;

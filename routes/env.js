@@ -7,14 +7,8 @@ const router = express.Router();
 
 var validate = require('express-jsonschema').validate;
 
-var terainSchema = {
-    "id": "/terain",
-    "type": 'string',
-    "required": true,
-    "enum": ['dirt','water','rock','sand']
-}
 
-
+//environment Schema validator
 var envConfigSchema = {
     type: 'object',
     properties: {
